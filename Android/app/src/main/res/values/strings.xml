@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Android</string>
+    <string name="name_text">Mahady Hasab</string>
+    <string name="large_text">Delta modulation transmits only one bit per sample. Here, the present sample
+value is compared with the previous sample value and this result whether the
+amplitude is increased or decreased is transmitted.
+• Input signal x(t) is approximated to step signal by the delta modulator. This step
+size is kept fixed. The difference between the input signal x(t) and staircase
+approximated signal is confined to two levels, i.e., +Δ and -Δ.
+• Now, if the difference is positive, then approximated signal is increased by „Δ‟. If
+the difference is negative, then approximated signal is reduced by „Δ‟ .
+• When the step is reduced, „0‟ is transmitted and when the step is increased, „1‟ is
+transmitted.
+• Hence, for each sample, only one binary bit is transmitted</string>
+</resources>
