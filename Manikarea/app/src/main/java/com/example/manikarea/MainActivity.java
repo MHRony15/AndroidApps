@@ -5,16 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public Button btnc,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0;
     public Button btnadd,btnsub,btndiv,btnmul,btndec,btnequal;
-    public TextView textarea;
-    public double val1, val2, result;
+    public EditText textarea;
+    public String val1, val2, result;
     public boolean add, sub, mul, div;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("Calculator");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnc = (Button) findViewById(R.id.btnc);
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btndiv = (Button) findViewById(R.id.btndiv);
         btndec = (Button) findViewById(R.id.btndec);
         btnequal = (Button) findViewById(R.id.btnequal);
-        textarea = (TextView) findViewById(R.id.textarea);
+        textarea = (EditText) findViewById(R.id.textarea);
 
         btnc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val1 = Double.parseDouble(textarea.getText()+"");
+                val1=textarea.getText()+"";
                 add = true;
                 textarea.setText(null);
             }
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         btnsub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val1 = Double.parseDouble(textarea.getText()+"");
+                val1=textarea.getText()+"";
                 sub = true;
                 textarea.setText(null);
             }
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         btnmul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val1 = Double.parseDouble(textarea.getText()+"");
+                val1=textarea.getText()+"";
                 mul = true;
                 textarea.setText(null);
             }
@@ -135,10 +137,34 @@ public class MainActivity extends AppCompatActivity {
         btndiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val1 = Double.parseDouble(textarea.getText()+"");
+                val1=textarea.getText()+"";
                 div = true;
                 textarea.setText(null);
             }
         });
+        btnequal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                val1=textarea.getText()+"";
+                if(add==true){
+                    textarea.setText(CalculatorFuntion.add(val1,val1));
+                    add=false;
+
+                }
+                else if(sub==true){
+                    textarea.setText(CalculatorFuntion.sub(val1,val2));
+                    sub=false;
+                }
+                else if(mul==true){
+                    textarea.setText(CalculatorFuntion.mul(val1,val2));
+                    mul=false;
+                }
+                else if(div==true){
+                    textarea.setText(CalculatorFuntion.div(val1,val2));
+                    div=false;
+                }
+            }
+        });
     }
+
 }
